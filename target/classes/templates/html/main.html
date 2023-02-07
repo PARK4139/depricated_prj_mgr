@@ -1,0 +1,19 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta lang="ko">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-static/">
+	<link href="/bootstrap/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<title th:text="main"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" >
+</head>
+<body >
+<nav th:replace="html/fragments :: REPLACE_NAV_TOP('main')"></nav>
+<div th:replace="html/fragments :: REPLACE_FOOTER('main')"></div>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="/js/common.js" th:src="@{/js/common.js}" type="text/javascript"></script>
+</body>
+</html>

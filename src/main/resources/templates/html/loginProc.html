@@ -1,0 +1,43 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta lang="ko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type"/>
+    <meta content="text/html"/>
+    <title>loginProc</title>
+</head>
+<body>
+<!--<div th:text="${data_to_post}">test</div>-->
+<!--<div th:text="${data_to_post.STD_NO}">test</div>-->
+<!--<div th:text="${data_to_post.PWD}">test</div>-->
+<!--<div th:text="${data_to_post.LoginPermissionYN}">test</div>-->
+<!--<form name="fm">-->
+<!--    <div class="" th:object="${data_to_post}">-->
+<!--        <input type="text" th:field="*{STD_NO}" value="" name="STD_NO" class="" onkeydown="moveFocusToPWD()">-->
+<!--        <input type="password" th:field="*{PWD}" value="" name="PWD" class="" onkeydown="pressEnter()">-->
+<!--        <input type="hidden" th:field="*{loginPermissionYN}" value="" name="PWD" class=""-->
+<!--               onkeydown="pressEnter()">-->
+<!--        <input type="button" class="" value="로그인" onclick="login()">-->
+<!--    </div>-->
+<!--</form>-->
+<script>
+    function login(){
+         document.fm.method = "post";
+         document.fm.action = "/home/loginProc.html";
+         document.fm.submit();
+         <!--    window.alert("등록되어 있지 않습니다"); -->
+    }
+    function pressEnter(){
+         if(event.keyCode == 13) login();
+    }
+    function alert_as(str_msg){
+        alert(str_msg);
+    }
+    function moveFocusToPWD(){
+           if(event.keyCode == 13) document.fm.PWD.focus();
+    }
+</script>
+</body>
+</html>

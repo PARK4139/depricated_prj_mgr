@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>leaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script> -->
+    <script th:src="@{/js/p5.speech.js}"></script>
+<!--    <audio th:src="@{/mp3/네.mp3}"></audio>-->
+</head>
+<body>
+<!--______________________________________________________________________________________________________________ controller-->
+<!-- <title th:replace="html/fragments :: REPLACE_CONTROLLER(${CODEVALUE.FOO})"></title> -->
+<!--<div>System commands</div>-->
+<!--<div>SystemMgr calling commands</div>-->
+<!--<div>coe야</div>-->
+<!--<div>eco야</div>-->
+<!--<div>koe야</div>-->
+<!--<div>시스템 호출</div>-->
+<!--<div>시스템</div>-->
+<!--<div>코드 1945 (양식 제출)</div>-->
+<!--<div>코드 2000</div>-->
+<!--<div>300</div>-->
+<!--<div>350</div>-->
+<!--<div>260 1000</div>-->
+<!--<div>리프</div>-->
+<!--<div>리프야</div>-->
+<!--<div>날씨</div>-->
+<!--<div>시간</div>-->
+<!--<div>제출</div>-->
+<!--<div>몇 시야</div>-->
+<!--<div>날씨 어때</div>-->
+<!--<div>양식 제출</div>-->
+<!--<div>음악</div>-->
+<!--<div>음악 틀어 줘</div>-->
+<div hidden id="clock" class="clock">in loading time...</div>
+<form name="form_leaf">
+    <div class="col-6" th:object="${leafMgr}">
+        <input type="text" th:field="*{VoiceCommand}" value="" name="leaf" class="VoiceCommandInputBox"><br>
+<!--        <input type="button" onclick="webMgr.prototype.play('/mp3/foo.mp3','WAY1')" value="webMgr.prototype.play('/mp3/foo.mp3','WAY1')" id="webMgr.prototype.play('/mp3/foo.mp3','WAY1')"><br>-->
+        <div id="id1"></div>
+        <!--      <input name="ID" type="text" th:field="*{ID}" value=""  class=""-->
+        <!--             onkeydown="moveFocusToPWD()">-->
+        <!--      <input name="PW" type="password" th:field="*{PW}" value=""  class=""-->
+        <!--             onkeydown="pressEnter()">-->
+        <input type="button" value="DBtoJSP(select)" onclick="bringDataFromDB()"><br>
+        <input type="button" value="JSPtoJSP(submit)" onclick="submitForm()"><br>
+        <input type="button" value="JSPtoDB(insert)" onclick="foo()"><br>
+        <input type="button" value="JSPtoDB(update)" onclick="foo()"><br>
+        <input type="button" value="JSPtoDB(delete)" onclick="foo()"><br>
+        <div>video way2</div>
+        <video id="local_video_player" controls autoplay>
+            <source th:src="@{/mp4/EBS 위대한 수업 그레이트 마인즈 Jane Goodall.mp4}" type="video/mp4">
+            <!--            <source th:src="@{mp4/test.mkv}" type="video/mp4">-->
+            <!--            <source th:src="@{mp4/test.avi}" type="video/mp4">-->
+        </video>
+        <div>video way3 via youtube iframe_api</div>
+        <div>//동영상을 유튜브 서버에 업로드해서 유튜브 서버 자원을 이용하는 방법</div>
+        <div id="player"></div>
+    </div>
+</form>
+<!--    <div class="col-3">-->
+<!--      <input type="button" class="" value="로그인" onclick="login()">-->
+<!--    </div>-->
+</div>
+<!--<audio hidden th:src="@{/mp3/foo.mp3}" autoplay loop controls ></audio>-->
+    <script th:src="@{/js/leaf.js}"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta lang="ko">
+    <meta http-equiv="Content-Type"/>
+    <meta content="text/html"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-static/">
+    <link href="/bootstrap/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <title th:replace="html/fragments :: REPLACE_TITLE(${TMPCodeValue.HOME_TITLE})"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+<nav th:replace="html/fragments :: REPLACE_NAV_TOP('login')"></nav>
+<div th:replace="html/fragments :: REPLACE_BANNER_IMG('/img/main.jpg')"></div>
+
+
+<div class="CONTENT_CONTAINER container">
+    <div class="CONTENT_CONTAINER_ row">
+        <div class="LEFT_CONTENT col-3">
+            <div class="NAV_ITEM">로그인</div>
+            <div class="NAV_ITEM"><a th:href="@{#}">로그인</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">Q&A</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">신고합니다</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 신고</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 조회</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">FAQ</a></div>
+        </div>
+        <div class="RIGHT_CONTENT col-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="RIGHT_CONTENT_ROW1_CONTENT1 ">로그인</div>
+                    </div>
+                    <div class="col-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT2 col-4">HOME</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT3 col-4">커뮤니티</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT4 col-4">로그인</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">LOGIN</div>
+                    <div class="col-1"></div>
+                    <div class="col-8">
+                        <div>생활관생은 학번 및 비밀번호로 로그인하여 마이페이지 메뉴를</div>
+                        <div>이용할 수 있습니다.(최초 비밀번호는 법정생년월일 6자리)</div>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-1"></div>
+                </div>
+                <form name="fm">
+                    <div class="row">
+                        <div class="col-3">
+                            <div>학&nbsp;&nbsp;번</div>
+                            <div>비밀번호</div>
+                        </div>
+
+                        <div class="col-6" th:object="${communicationdatastorage}">
+                            <input type="text" th:field="*{STD_NO}" value="" name="STD_NO" class=""
+                                   onkeydown="moveFocusToPWD()">
+                            <input type="password" th:field="*{PWD}" value="" name="PWD" class=""
+                                   onkeydown="pressEnter()">
+                        </div>
+                        <div class="col-3">
+                            <input type="button" class="" value="로그인" onclick="login()">
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6"><a th:href="@{#}">비밀번호 재설정</a></div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr>
+
+<div th:replace="html/fragments :: REPLACE_FOOTER('login')"></div>
+<script type="text/javascript">
+window.onload = function(){
+        document.getElementsByName('STD_NO')[0].focus();
+        <!--        document.fm.STD_NO.focus();-->
+        //resizeTo(500,410);
+        //window.resizeTo(500,410);
+    };
+    function login(){
+        if( document.fm.STD_NO.value == ""){
+             window.alert("학번을 입력해주세요");
+             document.fm.STD_NO.focus();
+            return;
+        }
+        if( document.fm.PWD.value == ""){
+            window.alert("비밀번호를 입력해주세요");
+             document.fm.PWD.focus();
+            return;
+        }
+         document.fm.method = "post";
+         document.fm.action = "/home/loginProc.html";
+         document.fm.submit();
+         <!--    window.alert("등록되어 있지 않습니다"); -->
+        return false;
+    }
+    function pressEnter(){
+         if(event.keyCode == 13) login();
+    }
+    function alert_as(str_msg){
+        alert(str_msg);
+    }
+    function moveFocusToPWD(){
+           if(event.keyCode == 13) document.fm.PWD.focus();
+    }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="/js/common.js" th:src="@{/js/common.js}" type="text/javascript"></script>
+</body>
+</html>

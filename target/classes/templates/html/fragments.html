@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<title class="" th:fragment="REPLACE_TITLE(para)" th:text="${para}"></title>
+<div class="BANNER_IMG_CONTAINER" th:fragment="REPLACE_BANNER_IMG(img_location)">
+    <img class="BANNER_IMG" src="/img/main.jpg" th:src="${img_location}" alt="이미지지원시도요청">
+</div>
+<nav class="NAV_TOP navbar fixed-top navbar-expand-md navbar-dark bg-dark mb-4"
+     th:fragment="REPLACE_NAV_TOP(replace_nav_para)">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse justify-content-between">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="dropdown_controller1 nav-link" th:href="@{/home/main.html}"
+                       th:classappend="${replace_nav_para} == 'main'? 'active'">메인</a>
+                    <div class="dropdown_controller1_target_container">
+                        <ul class="dropdown_controller1_target style_list_style_none style_display_none">
+                            <li><a class="dropdown_item" href="#">_______일번</a></li>
+                            <li><a class="dropdown_item" href="#">_______이번</a></li>
+                            <li><a class="dropdown_item" href="#">_______삼번</a></li>
+                            <li><a class="dropdown_item" href="#">_______삼번</a></li>
+                            <li><a class="dropdown_item" href="#">_______삼번</a></li>
+                            <li><a class="dropdown_item" href="#">_______삼번</a></li>
+                            <li><a class="dropdown_item" href="#">_______삼번</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">TBD</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav  mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="dropdown_controller2 nav-link " th:href="@{/home/main.html}"
+                       th:classappend="${replace_nav_para} == 'main'? 'active'">메인</a>
+                </li>
+                <li class="nav-item">
+                    <a class="dropdown_controller2 nav-link " th:href="@{/home/login.html}"
+                       th:classappend="${replace_nav_para} == 'login'? 'active'">로그인</a>
+                </li>
+                <li class="nav-item">
+                    <a class="dropdown_controller2 nav-link " th:href="@{/home/community.html}"
+                       th:classappend="${replace_nav_para} == 'community'? 'active'">커뮤니티</a>
+                    <div class="dropdown_controller2_target_container">
+                        <ul class="dropdown_controller2_target style_list_style_none style_display_none">
+                            <li><a class="dropdown_item" href="#">공지사항</a></li>
+                            <li><a class="dropdown_item" href="#">Q&A</a></li>
+                            <li><a class="dropdown_item" href="#">신고합니다</a></li>
+                            <li><a class="dropdown_item" href="#">고장수리 신고</a></li>
+                            <li><a class="dropdown_item" href="#">고장수리 조회</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="dropdown_controller3 nav-link " th:href="@{/home/my-page.html}"
+                       th:classappend="${replace_nav_para} == 'my_page'? 'active'">마이페이지</a>
+                    <div class="dropdown_controller3_target_container">
+                        <ul class="dropdown_controller3_target style_list_style_none style_display_none">
+                            <li><a class="dropdown_item" href="#">개인정보관리</a></li>
+                            <li><a class="dropdown_item" href="#">입/퇴사관리</a></li>
+                            <li><a class="dropdown_item" href="#">나의 Q&A</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="CONTENT_CONTAINER container" th:fragment="REPLACE_CONTENT_CONTAINER_(para)">
+    <div class="CONTENT_CONTAINER_ row">
+        <div class="LEFT_CONTENT col-3">
+            <div class="NAV_ITEM">커뮤니티</div>
+            <div class="NAV_ITEM"><a th:href="@{#}">공지사항</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">Q&A</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">신고합니다</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 신고</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 조회</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">FAQ</a></div>
+        </div>
+        <div class="RIGHT_CONTENT col-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="RIGHT_CONTENT_ROW1_CONTENT1 ">공지사항</div>
+                    </div>
+                    <div class="col-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT2 col-4">HOME</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT3 col-4">커뮤니티</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT4 col-4">공지사항</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="RIGHT_CONTENT_ROW1_CONTENT1 style_display_inline_block">생활관 운영팀</div>
+            <hr>
+            <div class="container">
+                <div class="container_ row">
+                    <div class="left col-6">
+
+                    </div>
+                    <div class="left col-6">
+
+                        <form class="" role="search" method="post">
+                            <select class="SERCH_OPTIONS_CONTAINER" onchange="familySite(this.value); return false;">
+                                <option value="title">제목</option>
+                                <option value="name">이름</option>
+                                <option value="content">내용</option>
+                            </select>
+                            <input class="" type="search" placeholder="">
+                            <!--                    <input class="btn btn-outline-success" type="submit" value="검색" th:href="@{this_page.url}">-->
+                            <input class="" type="submit" value="검색">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="CONTENT_CONTAINER container" th:fragment="REPLACE_CONTENT_CONTAINER_MAIN(para)">
+    <div class="CONTENT_CONTAINER_ row">
+        <div class="LEFT_CONTENT col-3">
+            <div class="NAV_ITEM">커뮤니티</div>
+            <div class="NAV_ITEM"><a th:href="@{#}">공지사항</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">Q&A</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">신고합니다</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 신고</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 조회</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">FAQ</a></div>
+        </div>
+        <div class="RIGHT_CONTENT col-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="RIGHT_CONTENT_ROW1_CONTENT1 ">공지사항</div>
+                    </div>
+                    <div class="col-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT2 col-4">HOME</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT3 col-4">커뮤니티</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT4 col-4">공지사항</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="RIGHT_CONTENT_ROW1_CONTENT1 style_display_inline_block">생활관 운영팀</div>
+            <hr>
+            <div class="container">
+                <div class="container_ row">
+                    <div class="left col-6">
+
+                    </div>
+                    <div class="left col-6">
+
+                        <form class="" role="search" method="post">
+                            <select class="SERCH_OPTIONS_CONTAINER" onchange="familySite(this.value); return false;">
+                                <option value="title">제목</option>
+                                <option value="name">이름</option>
+                                <option value="content">내용</option>
+                            </select>
+                            <input class="" type="search" placeholder="">
+                            <!--                    <input class="btn btn-outline-success" type="submit" value="검색" th:href="@{this_page.url}">-->
+                            <input class="" type="submit" value="검색">
+                        </form>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-1 style_text_align_center">순번</div>
+                            <div class="col-7 style_text_align_center">제목</div>
+                            <div class="col-1 style_text_align_center">이름</div>
+                            <div class="col-2 style_text_align_center">날짜</div>
+                            <div class="col-1 style_text_align_center">조회</div>
+                        </div>
+                        <div class="row" th:each="NOTICE_RECORD : ${NOTICE_TB}">
+                            <div class="col-1" th:text="${NOTICE_RECORD.IDX}"></div>
+                            <div class="col-7"><a th:text="${NOTICE_RECORD.TITLE}"
+                                                  th:href="@{/home/community.html(idx=${NOTICE_RECORD.IDX})}"></a></div>
+                            <div class="col-1" th:text="${NOTICE_RECORD.NAME}"></div>
+                            <div class="col-2" th:text="${NOTICE_RECORD.DATE_NOTICE}"></div>
+                            <div class="col-1" th:text="${NOTICE_RECORD.VIEW_COUNT}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="CONTENT_CONTAINER container" th:fragment="REPLACE_CONTENT_CONTAINER_COMMUNITY(para)">
+    <div class="CONTENT_CONTAINER_ row">
+        <div class="LEFT_CONTENT col-3">
+            <div class="NAV_ITEM">커뮤니티</div>
+            <div class="NAV_ITEM"><a th:href="@{#}">공지사항</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">Q&A</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">신고합니다</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 신고</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 조회</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">FAQ</a></div>
+        </div>
+        <div class="RIGHT_CONTENT col-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="RIGHT_CONTENT_ROW1_CONTENT1 ">공지사항</div>
+                    </div>
+                    <div class="col-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT2 col-4">HOME</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT3 col-4">커뮤니티</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT4 col-4">공지사항</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="RIGHT_CONTENT_ROW1_CONTENT1 style_display_inline_block">생활관 운영팀</div>
+            <hr>
+            <div class="container">
+                <div class="container_ row">
+                    <div class="left col-6">
+
+                    </div>
+                    <div class="left col-6">
+
+                        <form class="" role="search" method="post">
+                            <select class="SERCH_OPTIONS_CONTAINER" onchange="familySite(this.value); return false;">
+                                <option value="title">제목</option>
+                                <option value="name">이름</option>
+                                <option value="content">내용</option>
+                            </select>
+                            <input class="" type="search" placeholder="">
+                            <!--                    <input class="btn btn-outline-success" type="submit" value="검색" th:href="@{this_page.url}">-->
+                            <input class="" type="submit" value="검색">
+                        </form>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-1 style_text_align_center">순번</div>
+                            <div class="col-7 style_text_align_center">제목</div>
+                            <div class="col-1 style_text_align_center">이름</div>
+                            <div class="col-2 style_text_align_center">날짜</div>
+                            <div class="col-1 style_text_align_center">조회</div>
+                        </div>
+                        <div class="row" th:each="NOTICE_RECORD : ${NOTICE_TB}">
+                            <div class="col-1" th:text="${NOTICE_RECORD.IDX}"></div>
+                            <div class="col-7"><a th:text="${NOTICE_RECORD.TITLE}"
+                                                  th:href="@{/home/community.html(idx=${NOTICE_RECORD.IDX})}"></a></div>
+                            <div class="col-1" th:text="${NOTICE_RECORD.NAME}"></div>
+                            <div class="col-2" th:text="${NOTICE_RECORD.DATE_NOTICE}"></div>
+                            <div class="col-1" th:text="${NOTICE_RECORD.VIEW_COUNT}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="CONTENT_CONTAINER container" th:fragment="REPLACE_CONTENT_CONTAINER_MY_PAGE(para)">
+    <div class="CONTENT_CONTAINER_ row">
+        <div class="LEFT_CONTENT col-3">
+            <div class="NAV_ITEM">커뮤니티</div>
+            <div class="NAV_ITEM"><a th:href="@{#}">공지사항</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">Q&A</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">신고합니다</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 신고</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">고장수리 조회</a></div>
+            <div class="NAV_ITEM"><a th:href="@{#}">FAQ</a></div>
+        </div>
+        <div class="RIGHT_CONTENT col-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="RIGHT_CONTENT_ROW1_CONTENT1 ">공지사항</div>
+                    </div>
+                    <div class="col-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT2 col-4">HOME</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT3 col-4">커뮤니티</div>
+                                <div class="RIGHT_CONTENT_ROW1_CONTENT4 col-4">공지사항</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="RIGHT_CONTENT_ROW1_CONTENT1 style_display_inline_block">생활관 운영팀</div>
+            <hr>
+            <div class="container">
+                <div class="container_ row">
+                    <div class="left col-6">
+
+                    </div>
+                    <div class="left col-6">
+
+                        <form class="" role="search" method="post">
+                            <select class="SERCH_OPTIONS_CONTAINER" onchange="familySite(this.value); return false;">
+                                <option value="title">제목</option>
+                                <option value="name">이름</option>
+                                <option value="content">내용</option>
+                            </select>
+                            <input class="" type="search" placeholder="">
+                            <!--                    <input class="btn btn-outline-success" type="submit" value="검색" th:href="@{this_page.url}">-->
+                            <input class="" type="submit" value="검색">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="CONTENT_LEFT_" th:fragment="REPLACE_CONTENT_LEFT(para)"></div>-->
+<!--<div class="CONTENT_RIGHT" th:fragment="REPLACE_CONTENT_RIGHT(para)"></div>-->
+<div class="FOOTER_CONTAINER" th:fragment="REPLACE_FOOTER(para)">
+    <div class="FOOTER_CONTAINER_">
+        <ul class="FOOTER_CONTAINER__ style_list_style_none style_display_inline_block style_margin_20px_20px_0px_0px">
+            <li class="style_display_inline_block "><span class="style_margin_0px_0px_0px_10px">(22212) 인천광역시 미추홀구 인하로100 인하공업전문대학</span>
+            </li>
+            <li class="style_display_inline_block "><span class="style_margin_0px_0px_0px_10px">Tel : 032-870-2917, 032-870-2918</span>
+            </li>
+            <li class="style_display_inline_block "><span
+                    class="style_margin_0px_0px_0px_10px">Fax : 032-872-2919</span></li>
+            <li class="style_display_inline_block "><a href="https://www.inhatc.ac.kr/kr/152/subview.do"
+                                                       class="btnPinfo"
+                                                       target="_blank"><span
+                    class="style_personal_info_servicing_policy">개인정보취급방침</span></a></li>
+            <li class="style_display_inline_block">
+                <select class="options_container" onchange="familySite(this.value); return false;">
+                    <option value="1">Family Site 바로가기</option>
+                    <option value="http://www.inhatc.ac.kr">인하공업전문대학</option>
+                    <option value="https://icims.inhatc.ac.kr/intra/login.jsp">종합정보시스템</option>
+                    <option value="https://job.inhatc.ac.kr">취업지원시스템(일자리)</option>
+                    <option value="http://library.inhatc.ac.kr">도서관</option>
+                    <option value="http://inhatc.certpia.com">인터넷제증명발급</option>
+                </select>
+            </li>
+            <li class="style_margin_custom">
+                <div class="copyright">COPYRIGHT ⓒ 2017 <span
+                        class="style_color_pastel_blue">INHA TECHNICAL COLLEGE</span>. ALL RIGHTS RESERVED.
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <!--    <div id="btnTop" style="display: block; left: 1053.01px;">-->
+    <!--        <a href="#top">TOP</a>-->
+    <!--    </div>-->
+</div>
+
+
+<table class="table table-success table-striped" th:fragment="REPLACE_BOARD_TB(para)">
+    <thead>
+    <tr>
+        <th scope="col">번호</th>
+        <th scope="col">제목</th>
+        <th scope="col">내용</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="BOARD_RECORD : ${BOARD_TB}">
+        <th scope="col" th:text="${BOARD_RECORD.idx}">번호</th>
+        <th scope="col" th:text="${BOARD_RECORD.title}">제목</th>
+        <th scope="col" th:text="${BOARD_RECORD.content}">내용</th>
+    </tr>
+    </tbody>
+</table>
+<main class="container" th:fragment="REPLACE_BOARD_TB_CONTAINER(para)">
+    <div class="bg-light p-5 rounded">
+        <h1>게시판</h1>
+        <span>총 건수```</span><span th:text="${#lists.size(BOARD_TB)}"></span><br>
+        <table th:replace="training/common/fragments :: REPLACE_BOARD_TB('')">replace_board_TB</table>
+    </div>
+</main>
+<div class="container" th:fragment="REPLACE_HOME_TB_CONTAINER(para)">
+    <div class="bg-light p-5 rounded">
+        <table class="table table-success table-striped">
+            <thead>
+            <tr>
+                <th scope="col">data_key</th>
+                <th scope="col">data_value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="col" th:text="|coder|"/>
+                <th scope="col" th:text="|${coder}|"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div th:fragment="REPLACE_PAGE_INFO(para)" scope="col" th:text="|coder``${coder}|"/>
+<div th:fragment="REPLACE_CONTROLLER(para)" scope="col">
+    <div th:text="|${para}|" />
+
+
+
+
+    <br>
+    <br>
+<!--    <a th:text="localhost:8080/test?uid=tester" th:href="@{test(uid=${communication_object.uid})}"></a><br>-->
+<!--    <a th:text="localhost:8080/test" th:href="@{/test}"></a><br>-->
+<!--    <input type="button" value="localhost:9090/test?uid=tester" th:onclick="|location.href='@{test(uid=${communication_object.uid})}'|"></input><br>-->
+<!--    <input type="button" value="localhost:9090/test" th:onclick="|location.href='@{test}'|"></input><br>-->
+</div>
+<div th:fragment="REPLACE_DISPLAY(para)" scope="col">
+    <div th:text="|${para}|" />
+    <div th:text="|communication_object.id```${communication_object.id}|" />
+    <div th:text="|communication_object.content```${communication_object.content}|" />
+    <div th:text="|BOARD_TB 총 건수```${#lists.size(BOARD_TB)|" />
+    <div th:text="|NOTICE_TB 총 건수```${#lists.size(NOTICE_TB)|" />
+    <div th:text="|my_form.id```${my_form.id}|" />
+    <div th:text="|my_form.content```${my_form.content}|" />
+</div>
+<div th:fragment="replace_nav(replace_nav_para)" class="navbar navbar-expand-md navbar-dark bg-dark mb-4" >
+    <div class="container-fluid">
+        <a class="nav-link" aria-current="page" th:href="@{/pages/home}">administrator</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarColl apse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item"  >
+                    <a class="nav-link "  href="/pages/home"   th:classappend="${replace_nav_para} == 'home'? 'active'" >입사관리</a>
+                </li>
+                <li class="nav-item"  >
+                    <a class="nav-link "  href="/pages/board"  th:classappend="${replace_nav_para} == 'boards'? 'active'" >게시판</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">TBD</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="communicationObject-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="btn btn-outline-success" type="submit" value="검색">
+            </form>
+        </div>
+    </div>
+</div >
+</body>
+</html>
